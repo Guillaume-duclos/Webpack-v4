@@ -7,8 +7,9 @@ module.exports = {
   },
 
   output: {
-    path: path.resolve(__dirname, './build'),
-    filename: '[name].js'
+    path: path.resolve(__dirname, 'build'),
+    filename: '[name].[hash:8].js',
+    chunkFilename: "[name].js"
   },
 
   devServer: {
@@ -22,6 +23,7 @@ module.exports = {
   ],
 
   module: {
+    // HTML
     rules: [
       {
         test: /\.html$/,
@@ -29,27 +31,37 @@ module.exports = {
           loader: 'html-loader'
         }
       },
+      // JS
       {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
-        loader: "babel-loader",
+        loader: 'babel-loader',
         options: {
-          presets: ["es2015"]
+          presets: ['es2015']
         },
       },
+      // CSS
       {
         test: /\.(css|scss|sass)$/,
+        exclude: /(node_modules|bower_components)/,
         use: [
-          { loader: 'style-loader' },
           {
             loader: 'css-loader',
-            options: { modules: true }
+            options: {
+              modules: true
+            }
           },
-          { loader: 'sass-loader' }
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'sass-loader'
+          }
         ]
       },
+      // ASSETS AND FONTS
       {
-        test: /\.(png|jpg|jpeg|gif|svg)$/,
+        test: /\.(png|jpg|jpeg|gif|svg|mp3|wav|ogg|flac|woff|woff2|eot|ttf|otf)(\?.*)?$/,
         use: [
           {
             loader: 'file-loader',
@@ -58,11 +70,7 @@ module.exports = {
             }
           }
         ]
-      },
-      {
-        test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/,
-        loader: 'file-loader'
-      },
+      }
     ]
   }
 };

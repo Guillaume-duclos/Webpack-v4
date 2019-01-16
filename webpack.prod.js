@@ -1,7 +1,6 @@
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-var WebpackClean = require('webpack-clean');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const common = require('./webpack.common');
 const merge = require('webpack-merge');
@@ -41,10 +40,7 @@ let config = merge(common, {
     }),
     new CleanWebpackPlugin(
       pathsToClean = 'build'
-    ),
-    new WebpackClean([
-      'build/js/app.js'
-    ])
+    )
   ]
 });
 

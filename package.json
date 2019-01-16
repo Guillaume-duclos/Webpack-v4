@@ -9,8 +9,9 @@
     "dev": "webpack-dev-server --open --hot --mode development --config webpack.dev.js",
     "deploy": "npm run build && git add -A && git commit -nm ':rocket: deploy' && git push && git subtree push --prefix build origin gh-pages"
   },
+  "homepage": "https://github.com/Guillaume-duclos/Webpack-v4",
   "author": "Guillaume DUCLOS",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@babel/preset-react": "^7.0.0",
     "babel": "^6.23.0",

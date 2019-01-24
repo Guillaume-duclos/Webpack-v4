@@ -10,10 +10,7 @@ let config = merge(common, {
   devtool: false,
   optimization: {
     minimizer: [
-      new UglifyJSPlugin({
-        cache: true,
-        parallel: true
-      }),
+      new UglifyJSPlugin(),
       new OptimizeCSSAssetsPlugin()
     ]
   },

@@ -4,9 +4,12 @@
   box-sizing: border-box;
 }
 
-.flex { display: flex; }
-.row { flex-direction: row; }
-.column { flex-direction: column; }
-.center { justify-content: center; }
-.around { justify-content: space-around; }
-.between { justify-content: space-between; }
+.flex         { display: flex; }
+.flex-row     { flex-direction: row; }
+.flex-column  { flex-direction: column; }
+.flex-center  { justify-content: center; }
+.flex-around  { justify-content: space-around; }
+.flex-between { justify-content: space-between; }
+.flex-wrap    { flex-wrap: wrap; }
+
+.text-center  { text-align: center; }

@@ -41,14 +41,26 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         use: ['babel-loader']
       },
-      // ASSETS AND FONTS
+      // ASSETS
       {
-        test: /\.(png|jpg|jpeg|gif|svg|mp3|wav|ogg|flac|woff|woff2|eot|ttf|otf)(\?.*)?$/,
+        test: /\.(png|jpg|jpeg|gif|svg|mp3|wav|ogg|flac)(\?.*)?$/,
         use: [
           {
             loader: 'file-loader',
             options: {
               name: 'assets/[name].[hash:8].[ext]'
+            }
+          }
+        ]
+      },
+      // FONTS
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)(\?.*)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'fonts/[name].[hash:8].[ext]'
             }
           }
         ]

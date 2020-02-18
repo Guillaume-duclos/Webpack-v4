@@ -10,7 +10,7 @@ let config = merge(common, {
   devtool: false,
   optimization: {
     minimizer: [
-      new UglifyJSPlugin(),
+      //new UglifyJSPlugin(),
       new OptimizeCSSAssetsPlugin()
     ]
   },
@@ -29,9 +29,9 @@ let config = merge(common, {
     ]
   },
   plugins: [
-    new UglifyJSPlugin({
+    /*new UglifyJSPlugin({
       sourceMap: false
-    }),
+    }),*/
     new MiniCssExtractPlugin({
       filename: 'styles/[name].[hash:8].css'
     }),
